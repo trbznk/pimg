@@ -8,7 +8,11 @@
 
 ## TODO
 
+- [ ] Find a more colorful dataset
+- [ ] Add a 'Getting Started' to the README
 - [ ] Optimize SOURCE_DIR validation (maybe just check random_sqaure on valid size while loading it, instead of all images in the SOURCE_DIR before creating the image)
 - [ ] Replace euclidean distance formula for similarity check with L*a*b method
 - [ ] opt-in full color squares for example (white or black as background color)
 - [ ] Not using duplicate sqaure in one image
+- [ ] Create a web app to draw templates and generate square images through API
+- [ ] Switch from pillow to OpenCV
