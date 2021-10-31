@@ -23,7 +23,7 @@ from PIL import Image
 from pathlib import Path
 from tqdm import tqdm
 
-SQUARES_PER_IMG = 10
+SQUARES_PER_IMG = 1
 SQUARE_SIZE = 100
 MAX_DISTANCE = 50
 if args.mode == "build":
@@ -107,8 +107,8 @@ def create_image(lines):
 
     img = Image.new("RGB", (width, height))
 
-    for i, h in enumerate(range(0, height, square_width)):
-        for j, v in enumerate(range(0, width, square_width)):
+    for i, v in enumerate(range(0, height, square_height)):
+        for j, h in enumerate(range(0, width, square_width)):
             color = COLOR_CODES[int(lines[i][j])]
             path = random.choice(glob(f"{SOURCE_DIR}/{color}/*.png"))
             with Image.open(path) as random_square:
@@ -128,7 +128,7 @@ def source_dir_is_valid():
 
 
 if args.mode == "build":
-    paths = glob(f"{SOURCE_DIR}/**/*.jpg")
+    paths = glob(f"{SOURCE_DIR}/*.jpg")
     print(f"Found {len(paths)} image in SOURCE_DIR")
     create_folders()
     for path in tqdm(paths):
